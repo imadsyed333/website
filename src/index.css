@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://media.discordapp.net/attachments/935622895009407009/1432955375937650789/hyperion_4k.jpg?ex=6902ef30&is=69019db0&hm=0fd9ff72a9ef530a988225a513d386837db3a3e6938d3e5362b99adf79fec312&=&format=webp&width=1522&height=856");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0px;
+
 }
 
 code {
