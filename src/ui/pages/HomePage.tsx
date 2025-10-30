@@ -12,8 +12,11 @@ export const HomePage = () => {
             <Typography variant='h1' sx={{
                 color: 'white',
             }}>
-                Welcome to Gondolin
+                Hi.
             </Typography>
+            <Typography variant='h5' sx={{
+                color: 'white'
+            }}>Do you like the spaceship?</Typography>
         </Box>
     )
 }
