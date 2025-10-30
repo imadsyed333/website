@@ -10,7 +10,8 @@ export const Navbar = () => {
         Home: '/',
         About: '/about',
         Projects: '/projects',
-        Contact: '/contact'
+        Hobbies: '/hobbies',
+        Contact: '/contact',
     }
     return (
         <AppBar sx={{
@@ -26,7 +27,7 @@ export const Navbar = () => {
                 display: 'flex',
                 height: '100%',
                 justifyContent: 'center',
-                width: '90%',
+                width: '100%',
                 background: 'rgba(255,255,255,0.1)',
                 backdropFilter: 'blur(10px)',
                 mt: 1,
@@ -35,7 +36,7 @@ export const Navbar = () => {
                     display: 'flex',
                     justifyContent: 'space-around',
                     height: '100%',
-                    width: '70%',
+                    width: '50%',
                 }}>
                     {
                         Object.entries(navLinks).map(([name, link], key) => (
