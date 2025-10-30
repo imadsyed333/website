@@ -8,6 +8,7 @@ import { Box } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { HomePage } from './ui/pages/HomePage';
 import { AboutPage } from './ui/pages/AboutPage';
+import { ProjectsPage } from './ui/pages/ProjectsPage';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               <Routes>
                 <Route index element={<HomePage />} />
                 <Route path='/about' element={<AboutPage />} />
+                <Route path='/projects' element={<ProjectsPage />} />
               </Routes>
             </Box>
           </BrowserRouter>
