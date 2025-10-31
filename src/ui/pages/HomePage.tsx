@@ -16,7 +16,7 @@ export const HomePage = () => {
             </Typography>
             <Typography variant='h5' sx={{
                 color: 'white'
-            }}>Do you like the spaceship?</Typography>
+            }}>Welcome to my website.</Typography>
         </Box>
     )
 }
