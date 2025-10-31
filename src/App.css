@@ -28,12 +28,36 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+.page-transition {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.page-transition.fadeIn {
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.page-transition.fadeOut {
+  animation: fadeOut 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
 
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }

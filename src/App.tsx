@@ -1,16 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Navbar } from './ui/components/Navbar';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './themes';
 import { Box } from '@mui/material';
-import { BrowserRouter, Route, Routes } from 'react-router';
-import { HomePage } from './ui/pages/HomePage';
-import { AboutPage } from './ui/pages/AboutPage';
-import { ProjectsPage } from './ui/pages/ProjectsPage';
+import { Route, Routes, useLocation } from 'react-router';
+import { routes } from './constants';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const location = useLocation()
+  const [displayLocation, setDisplayLocation] = useState(location);
+  const [transitionStage, setTransitionStage] = useState("fadeIn");
+
+  useEffect(() => {
+    if (location !== displayLocation) setTransitionStage("fadeOut");
+  }, [location, displayLocation]);
+
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
@@ -20,22 +25,30 @@ function App() {
           width: '100vw',
           justifyContent: 'center'
         }}>
-          <BrowserRouter>
-            <Navbar />
-            <Box sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '90%',
-              mt: '70px',
-            }}>
-              <Routes>
-                <Route index element={<HomePage />} />
-                <Route path='/about' element={<AboutPage />} />
-                <Route path='/projects' element={<ProjectsPage />} />
+          <Navbar />
+          <Box sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '90%',
+            mt: '70px',
+          }}>
+            <div className={`page-transition ${transitionStage}`}
+              onAnimationEnd={() => {
+                if (transitionStage === "fadeOut") {
+                  setTransitionStage("fadeIn");
+                  setDisplayLocation(location);
+                }
+              }}>
+              <Routes location={displayLocation}>
+                {
+                  routes.map((page, key) => (
+                    <Route key={key} index={'/' === page.path} path={page.path} element={page.element()} />
+                  ))
+                }
               </Routes>
-            </Box>
-          </BrowserRouter>
+            </div>
+          </Box>
         </Box>
       </div>
     </ThemeProvider>
