@@ -1,18 +1,10 @@
 import { AppBar, Box, Card, CardActionArea, Typography } from '@mui/material'
 import React from 'react'
 import { useNavigate } from 'react-router'
+import { NavButton } from './NavButton'
+import { routes } from '../../constants'
 
 export const Navbar = () => {
-
-    const navigate = useNavigate()
-
-    const navLinks = {
-        Home: '/',
-        About: '/about',
-        Projects: '/projects',
-        Hobbies: '/hobbies',
-        Contact: '/contact',
-    }
     return (
         <AppBar sx={{
             display: 'flex',
@@ -39,24 +31,8 @@ export const Navbar = () => {
                     width: '50%',
                 }}>
                     {
-                        Object.entries(navLinks).map(([name, link], key) => (
-                            <Card key={key} sx={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                m: 1,
-                                backgroundColor: 'rgba(255,255,255,0)',
-                            }}>
-                                <CardActionArea onClick={() => navigate(link)} sx={{
-                                    display: 'flex',
-                                    height: '100%',
-                                    width: '100%',
-                                    px: 2,
-                                }}>
-                                    <Typography sx={{
-                                        color: 'white'
-                                    }}>{name}</Typography>
-                                </CardActionArea>
-                            </Card>
+                        routes.map((route, key) => (
+                            <NavButton key={key} name={route.name} link={route.path} />
                         ))
                     }
                 </Box>
