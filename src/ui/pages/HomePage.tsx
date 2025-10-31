@@ -7,7 +7,8 @@ export const HomePage = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            height: '100%'
+            height: '100%',
+            mt: 3
         }}>
             <Typography variant='h1' sx={{
                 color: 'white',
