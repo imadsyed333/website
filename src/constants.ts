@@ -1,4 +1,9 @@
-import { Project } from "./types";
+import { PageRoute, Project } from "./types";
+import { AboutPage } from "./ui/pages/AboutPage";
+import { ContactPage } from "./ui/pages/ContactPage";
+import { HobbiesPage } from "./ui/pages/HobbiesPage";
+import { HomePage } from "./ui/pages/HomePage";
+import { ProjectsPage } from "./ui/pages/ProjectsPage";
 
 export const projects: Project[] = [
     {
@@ -18,5 +23,33 @@ export const projects: Project[] = [
         description: 'A full-stack, end-to-end e-commerce app for a small business selling samosas and other stuff. Developed using React, Express and Prisma Postgres.',
         imageLink: 'https://media.licdn.com/dms/image/v2/D562DAQFwAwlhDVtwtA/profile-treasury-image-shrink_800_800/B56ZoAJFWkJQAg-/0/1760938973567?e=1762405200&v=beta&t=dFgBGHRHXnh-q266X1pRSPbGyv0W_AdW4E42hvg_AQE',
         url: 'https://github.com/imadsyed333/backend'
+    }
+]
+
+export const routes: PageRoute[] = [
+    {
+        name: 'Home',
+        path: '/',
+        element: HomePage
+    },
+    {
+        name: 'About',
+        path: '/about',
+        element: AboutPage
+    },
+    {
+        name: 'Projects',
+        path: '/projects',
+        element: ProjectsPage
+    },
+    {
+        name: 'Hobbies',
+        path: '/hobbies',
+        element: HobbiesPage
+    },
+    {
+        name: 'Contact',
+        path: '/contact',
+        element: ContactPage
     }
 ]
