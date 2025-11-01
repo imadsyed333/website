@@ -2,7 +2,7 @@ import './App.css';
 import { Navbar } from './ui/components/Navbar';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './themes';
-import { Box } from '@mui/material';
+import { Box, Fade } from '@mui/material';
 import { Route, Routes, useLocation } from 'react-router';
 import { routes } from './constants';
 import { useEffect, useState } from 'react';
@@ -26,20 +26,17 @@ function App() {
           justifyContent: 'center'
         }}>
           <Navbar />
-          <Box sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '90%',
-            mt: '70px',
+          <Fade in={transitionStage === "fadeIn"} timeout={200} onExited={() => {
+            setDisplayLocation(location);
+            setTransitionStage("fadeIn");
           }}>
-            <div className={`page-transition ${transitionStage}`}
-              onAnimationEnd={() => {
-                if (transitionStage === "fadeOut") {
-                  setTransitionStage("fadeIn");
-                  setDisplayLocation(location);
-                }
-              }}>
+            <Box sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '90%',
+              mt: '70px',
+            }}>
               <Routes location={displayLocation}>
                 {
                   routes.map((page, key) => (
@@ -47,8 +44,8 @@ function App() {
                   ))
                 }
               </Routes>
-            </div>
-          </Box>
+            </Box>
+          </Fade>
         </Box>
       </div>
     </ThemeProvider>
