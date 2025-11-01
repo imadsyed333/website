@@ -11,6 +11,7 @@ export const HomePage = () => {
         }}>
             <Typography variant='h1' sx={{
                 color: 'white',
+                mt: 1,
             }}>
                 Hi.
             </Typography>

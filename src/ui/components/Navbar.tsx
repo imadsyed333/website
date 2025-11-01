@@ -1,10 +1,10 @@
 import { AppBar, Box, Card, CardActionArea, Typography } from '@mui/material'
 import React from 'react'
-import { useNavigate } from 'react-router'
 import { NavButton } from './NavButton'
 import { routes } from '../../constants'
 
 export const Navbar = () => {
+
     return (
         <AppBar sx={{
             display: 'flex',
@@ -22,7 +22,6 @@ export const Navbar = () => {
                 width: '100%',
                 background: 'rgba(255,255,255,0.1)',
                 backdropFilter: 'blur(10px)',
-                mt: 1,
             }}>
                 <Box sx={{
                     display: 'flex',
